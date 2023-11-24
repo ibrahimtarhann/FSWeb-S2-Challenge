@@ -105,7 +105,8 @@ sonucu konsolde gözlemleyin */
 
 /* (Oto test var) cumleKur fonksiyonuna 5 parametre göndererek "Ben iyi bir yazılımcı olacağım!" stringini 
 elde edin, sonucu `bircumle` değişkenine atayın ve konsolde gözlemleyin */
-var bircumle;
+var bircumle = cumleKur("Ben ", "iyi ", "bir ", "yazılımcı ", "olacağım!");
+console.log(bircumle);
 
 /* kodlar buraya */
 
@@ -128,8 +129,9 @@ var bircumle;
 			5. Oluşturulan yeni dizi döndürülecek.
 	*/
 
-function cumlelereDonustur(/* kodlar buraya */) {
-  /* kodlar buraya */
+function cumlelereDonustur(cumleArr, ayrac = ",") {
+  const sonuc = cumleArr.map((cumle) => cumle.join(ayrac));
+  return sonuc;
 }
 
 /* GÖREV 2:
@@ -156,6 +158,9 @@ function paragrafOlustur(/* kodlar buraya */) {
 //3a çözümü
 /* kodlar buraya */
 
+meyveler.pop();
+meyveler.shift();
+
 /* 			3b.  Bir tavşan ve bir kirpi arkadaşlar sebzeler dizimizin peşine düştü. Tavşan => 🐇 , Kirpi=> 🦔 , 
 Tavşanla kirpi sebzeleri ele geçirmek için bir plan kurdular. Tavşan diziye önden saldıracak, kirpi ise 
 arkalarından dolaşacak. Varsayalım ki arkadaşların planları başarılı oldu. Tavşanı dizinin ilk elemanına 🐇, 
@@ -163,6 +168,9 @@ Kirpiyi dizinin son elemanına ekleyin 🦔
  */
 //3b çözümü
 /* kodlar buraya */
+
+sebzeler.unshift("🐇");
+sebzeler.push("🦔");
 
 /* 			3c. manav isminde bir dizi oluşturun.`meyveler` dizisi ilk elemanlara, `sebzeler` dizisi son 
 elemanlara denk gelecek şekilde, iki diziyi birleştirip sonucu manav dizisine aktarın. (.concat metodu)
@@ -189,8 +197,16 @@ var manav;
 			4. elde edilen string döndürülecek
  */
 
-function emojileriDonustur(/* kodlar buraya */) {
-  /* kodlar buraya */
+function emojileriDonustur(mesaj, emojiObj) {
+  const emojiler = Object.keys(emojiObj); // :), :(
+  const emojilerIcon = Object.values(emojiObj); // 🙂, 😔
+
+  let mesajIcons = mesaj;
+
+  for (let i = 0; i < emojiler.length; i++) {
+    mesajIcons = mesajIcons.replaceAll(emojiler[i], emojilerIcon[i]);
+  }
+  return mesajIcons;
 }
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
